@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@600&display=swap" rel="stylesheet">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: 'Nunito Sans', sans-serif;
+        }
+    	li {
+    		padding: 5px;
+    	}
+        
+    </style>
+</head>
+<body>
+    <h2>My shopping list</h2>
+
+    <p>Enter a new item : 
+        <input type="text" id="item1">
+        <button id="btn1">Add Item</button>
+    </p>
+
+    <div id="mainPage"></div>
+
+    <script>
+    		function $(id) 
+    		{		
+    			return document.getElementById(id);
+    		}
+
+    		var ul1 = document.createElement("ul");            
+
+            $("btn1").onclick = function() {
+            
+            var main = $("mainPage");
+            var item = $("item1");
+
+			
+            var li1 = document.createElement("li");
+            var btn2 = document.createElement("button");
+
+            if(item.value.length > 0)
+            {
+            li1.textContent = item.value;
+            var x = document.createTextNode("Delete");
+            btn2.appendChild(x);
+
+            li1.appendChild(btn2);
+            ul1.appendChild(li1);
+            main.appendChild(ul1);
+            item.value = "";  
+           
+            } 
+             btn2.onclick = function(event) {
+            	ul1.removeChild(li1);
+            
+            }         
+            item.focus();
+        };
+
+    </script>
+</body>
+</html>
